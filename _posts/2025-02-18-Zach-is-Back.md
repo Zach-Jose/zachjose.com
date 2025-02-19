@@ -1,5 +1,5 @@
 ---
-title: "Zach-is-Back"
+title: "Zach is Back"
 date: 2025-02-18
 ---
 
