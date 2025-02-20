@@ -1,4 +1,4 @@
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/x-icon" href="/zavicon.ico">
 Every Day with Zach Jose
 
 
