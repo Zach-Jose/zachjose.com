@@ -6,5 +6,4 @@ Every Day with Zach Jose
 
 [Phone Number Input](/phone-input.html)
 
-
 [Random Phone Numbers](/random-numbers.html)
