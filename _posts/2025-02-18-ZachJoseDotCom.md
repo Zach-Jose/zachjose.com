@@ -1,8 +1,14 @@
 ---
-title: "ZachJose.com"
+title: "Knock Knock Joke"
 date: 2025-02-18
 ---
 
-Thanks for clicking! Try this one next! :)
+Knock knock
 ---
-https://giving.younglife.org/s/?GiftType=Staff&Name=ZachJose&Sponsoring=Zach%20Jose&AppealCodeId=70141000000tvBDAAY&BypassDesignationPage=false&MissionUnitId=a2s410000002wa2AAA&MissionUnitName=Greater%20Roseville%2FAntelope&ClassCodeId=a2j41000000Nj93AAC&ClassCodeName=Operating&StaffId=0034100002PWJ3WAAX&StaffName=Zachariah%20Jose
+Whos there?
+---
+I'm a puma
+--- 
+I'm a puma who?
+---
+I'mma puma pants if you don't let me in!
