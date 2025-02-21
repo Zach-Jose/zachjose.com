@@ -30,47 +30,50 @@
 
 <script>
   function startParty() {
-    // Play music
-    document.getElementById("song").play();
+    // Play a new instance of the song every click
+    let newSong = new Audio("/Phil.mp3");
+    newSong.play();
 
-    // Show and animate the cat
-    let cat = document.getElementById("cat");
-    cat.style.display = "block";
-    cat.style.width = "250px"; // Make the cat bigger
+    // Create a new cat GIF
+    let cat = document.createElement("img");
+    cat.src = "/cat-dance.gif";
+    cat.style.width = "250px"; // Bigger cat
     cat.style.position = "absolute";
     cat.style.bottom = "50px";
     cat.style.left = "10%";
-    
+    document.body.appendChild(cat);
+
+    // Animate the cat moving left & right
     let moveRight = true;
-    let catInterval = setInterval(() => {
+    let moveInterval = setInterval(() => {
       let leftPos = parseInt(cat.style.left);
       cat.style.left = moveRight ? (leftPos + 10) + "px" : (leftPos - 10) + "px";
       if (leftPos > window.innerWidth - 300) moveRight = false;
       if (leftPos < 10) moveRight = true;
     }, 100);
 
-    // Show the disco ball
-    let discoBall = document.getElementById("discoBall");
-    discoBall.style.display = "block";
-    discoBall.style.width = "200px"; // Make the disco ball bigger
+    // Create a new disco ball
+    let discoBall = document.createElement("img");
+    discoBall.src = "/disco.gif";
+    discoBall.style.width = "200px"; // Bigger disco ball
+    discoBall.style.position = "absolute";
+    discoBall.style.top = "10px";
+    discoBall.style.left = "50%";
+    document.body.appendChild(discoBall);
 
     // Flash effect for only 1 second
     document.body.style.animation = "flash 1s";
 
-    // Stop everything after 11 seconds
+    // Remove everything after 11 seconds
     setTimeout(() => {
-      clearInterval(catInterval);
-      cat.style.display = "none";
-      discoBall.style.display = "none";
-      document.body.style.animation = "";
+      clearInterval(moveInterval);
+      cat.remove();
+      discoBall.remove();
     }, 11000);
   }
 </script>
 
 <button onclick="startParty()">Start Party!</button>
-<audio id="song" src="/Phil.mp3"></audio>
-<img id="cat" src="/cat-dance.gif" style="display: none;">
-<img id="discoBall" src="/disco.gif" style="display: none;">
 
 
 ---
