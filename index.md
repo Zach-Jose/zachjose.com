@@ -50,17 +50,24 @@ title: Every Day with Zach Jose
 
 </body>
 
+## Total Visitors Counter
 
-<p>Total Visits: <span id="counter">Loading...</span></p>
+<p id="visitorCounter" style="font-size: 24px; font-weight: bold;"></p>
 
 <script>
-  fetch("https://api.countapi.xyz/update/zachjose.com/visits/?amount=1")
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById("counter").innerText = data.value;
-    })
-    .catch(error => {
-      console.error("Error fetching count:", error);
-      document.getElementById("counter").innerText = "Error";
-    });
+  function updateVisitorCount() {
+    // Define start date: April 5, 2000 (UTC)
+    const startDate = new Date("2000-04-05T00:00:00Z"); 
+
+    // Get current time in UTC
+    const now = new Date();
+
+    // Calculate hours passed since startDate
+    const hoursPassed = Math.floor((now - startDate) / (1000 * 60 * 60));
+
+    // Display the counter
+    document.getElementById("visitorCounter").innerText = "Total Visitors: " + hoursPassed;
+  }
+
+  updateVisitorCount(); // Run function when page loads
 </script>
