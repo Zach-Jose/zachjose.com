@@ -46,12 +46,17 @@ title: Every Day with Zach Jose
 
 </body>
 
+
+<p>Total Visits: <span id="counter">Loading...</span></p>
+
 <script>
-  fetch("https://api.countapi.xyz/hit/zachjose.com/visits")
+  fetch("https://api.countapi.xyz/update/zachjose.com/visits/?amount=1")
     .then(response => response.json())
     .then(data => {
       document.getElementById("counter").innerText = data.value;
+    })
+    .catch(error => {
+      console.error("Error fetching count:", error);
+      document.getElementById("counter").innerText = "Error";
     });
 </script>
-
-<p>Total Visits: <span id="counter">Loading...</span></p>
