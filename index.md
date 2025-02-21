@@ -18,7 +18,96 @@
   });
 </script>
 
+---
 
+<button id="partyButton" style="padding: 10px; font-size: 16px; cursor: pointer;">Start the Party!</button>
+
+<audio id="song" src="YOUR_SONG_URL_HERE"></audio>
+<img id="cat" src="https://i.imgur.com/4cPeH4T.png" alt="Cat" style="position: absolute; bottom: -100px; left: 50%; width: 100px; display: none;">
+<img id="discoBall" src="https://i.imgur.com/JzS8pcc.png" alt="Disco Ball" style="position: absolute; top: -150px; left: 50%; width: 100px; display: none;">
+<div id="fireworks"></div>
+
+<style>
+  @keyframes dance {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+  }
+  
+  @keyframes flash {
+    0%, 100% { background-color: white; }
+    50% { background-color: black; }
+  }
+  
+  @keyframes fireworks {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.5); }
+    100% { opacity: 0; transform: scale(2); }
+  }
+  
+  .flashing { animation: flash 0.2s infinite alternate; }
+  .dancing { animation: dance 0.2s infinite alternate; }
+  .firework { 
+    position: absolute; width: 20px; height: 20px; border-radius: 50%; 
+    background-color: red; animation: fireworks 1s ease-out; 
+  }
+</style>
+
+<script>
+  document.getElementById("partyButton").addEventListener("click", function() {
+    let song = document.getElementById("song");
+    let cat = document.getElementById("cat");
+    let discoBall = document.getElementById("discoBall");
+    let body = document.body;
+
+    // Play the song
+    song.play();
+
+    // Show the cat and disco ball
+    cat.style.display = "block";
+    cat.style.bottom = "50px";
+    cat.style.left = "50%";
+    
+    discoBall.style.display = "block";
+    discoBall.style.top = "10px";
+
+    // Make the cat dance
+    cat.classList.add("dancing");
+
+    // Flashing lights effect
+    body.classList.add("flashing");
+
+    // Fireworks
+    function createFirework() {
+      let firework = document.createElement("div");
+      firework.classList.add("firework");
+      firework.style.left = Math.random() * window.innerWidth + "px";
+      firework.style.top = Math.random() * window.innerHeight + "px";
+      firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      document.getElementById("fireworks").appendChild(firework);
+      
+      setTimeout(() => firework.remove(), 1000);
+    }
+    
+    let fireworkInterval = setInterval(createFirework, 300);
+
+    // Stop the dance and lights after 11 seconds
+    setTimeout(() => {
+      cat.classList.remove("dancing");
+      body.classList.remove("flashing");
+      discoBall.style.display = "none";
+      clearInterval(fireworkInterval);
+
+      // Make the cat walk away
+      cat.style.transition = "left 2s ease-in-out, bottom 1s ease-in-out";
+      cat.style.left = "110%";
+      setTimeout(() => { cat.style.display = "none"; }, 2000);
+    }, 11000);
+  });
+</script>
+
+---
 
 <head>
   <meta charset="UTF-8">
