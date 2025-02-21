@@ -5,11 +5,10 @@
 # Welcome to My Website  
 [Click here to visit my YouTube Channel](https://www.youtube.com/@zachariahjose5622)
 
+<p id="message">Click the button to see something cool.</p>
 <button onclick="document.getElementById('message').innerText='You clicked the button! 🎉'">
   Click Me!
 </button>
-
-<p id="message">Click the button to see something cool.</p>
 
 <head>
   <meta charset="UTF-8">
@@ -34,12 +33,14 @@
   </div>
 </body>
 
-<p id="visitorCounter" style="font-size: 24px; font-weight: bold;"></p>
+---
+
+<p id="visitorCounter" style="font-size: 14px; font-weight: bold;"></p>
 
 <script>
   function updateVisitorCount() {
     // Define start date: April 5, 2000 (UTC)
-    const startDate = new Date("2000-04-05T00:00:00Z"); 
+    const startDate = new Date("2000-04-05T00:00:00Z");
 
     // Get current time in UTC
     const now = new Date();
@@ -47,7 +48,7 @@
     // Calculate hours passed since startDate
     const hoursPassed = Math.floor((now - startDate) / (1000 * 60 * 60));
 
-    // Display the counter
+    // Display the counter in the footer
     document.getElementById("visitorCounter").innerText = "Total Visitors: " + hoursPassed;
   }
 
