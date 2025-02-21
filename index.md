@@ -22,9 +22,9 @@
 
 <button id="partyButton" style="padding: 10px; font-size: 16px; cursor: pointer;">Start the Party!</button>
 
-<audio id="song" src="YOUR_SONG_URL_HERE"></audio>
-<img id="cat" src="https://i.imgur.com/4cPeH4T.png" alt="Cat" style="position: absolute; bottom: -100px; left: 50%; width: 100px; display: none;">
-<img id="discoBall" src="https://i.imgur.com/JzS8pcc.png" alt="Disco Ball" style="position: absolute; top: -150px; left: 50%; width: 100px; display: none;">
+<audio id="song" src="/Phil.mp3"></audio>
+<img id="cat" src="https://www.vecteezy.com/free-png/cat-dance" alt="Cat" style="position: absolute; bottom: -100px; left: 50%; width: 100px; display: none;">
+<img id="discoBall" src="https://www.ebay.com/itm/235298353550" alt="Disco Ball" style="position: absolute; top: -150px; left: 50%; width: 100px; display: none;">
 <div id="fireworks"></div>
 
 <style>
