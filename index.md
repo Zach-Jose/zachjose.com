@@ -19,8 +19,6 @@
 </script>
 
 ---
-
-
 <style>
   @keyframes flash {
     0%, 50%, 100% { background-color: white; }
@@ -29,6 +27,10 @@
 </style>
 
 <script>
+  let initialPositionsSet = false;
+  let initialCatLeft = "10%";
+  let initialDiscoLeft = "50%";
+
   function startParty() {
     // Play a new instance of the song every click
     let newSong = new Audio("/Phil.mp3");
@@ -40,7 +42,13 @@
     cat.style.width = "250px"; // Bigger cat
     cat.style.position = "absolute";
     cat.style.bottom = "50px";
-    cat.style.left = "10%";
+
+    // Set initial or random position for the cat
+    if (!initialPositionsSet) {
+      cat.style.left = initialCatLeft;
+    } else {
+      cat.style.left = Math.random() * (window.innerWidth - 300) + "px";
+    }
     document.body.appendChild(cat);
 
     // Animate the cat moving left & right
@@ -58,7 +66,13 @@
     discoBall.style.width = "200px"; // Bigger disco ball
     discoBall.style.position = "absolute";
     discoBall.style.top = "10px";
-    discoBall.style.left = "50%";
+
+    // Set initial or random position for the disco ball
+    if (!initialPositionsSet) {
+      discoBall.style.left = initialDiscoLeft;
+    } else {
+      discoBall.style.left = Math.random() * (window.innerWidth - 200) + "px";
+    }
     document.body.appendChild(discoBall);
 
     // Flash effect for only 1 second
@@ -70,12 +84,13 @@
       cat.remove();
       discoBall.remove();
     }, 11000);
+
+    // Mark initial positions as set after the first click
+    initialPositionsSet = true;
   }
 </script>
 
 <button onclick="startParty()">Start Party!</button>
-
-
 ---
 
 <head>
