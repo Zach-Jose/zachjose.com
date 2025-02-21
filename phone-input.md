@@ -1,6 +1,5 @@
 ---
 layout: default
-title: Phone Number Roll
 ---
 
 <h2>Enter Your Phone Number</h2>
