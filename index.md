@@ -6,41 +6,62 @@ Every Day with Zach Jose
 
 [Phone Number Input](/phone-input.html)
 
-<style>
-  .cat-container {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    background: #f9f9f9;
-    padding: 10px 0;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Every Day with Zach Jose</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+</head>
+<body>
 
-  .cat-scroll {
-    display: flex;
-    gap: 10px;
-    animation: scrollCats 15s linear infinite;
-  }
-
-  .cat-scroll img {
-    width: 200px;
-    height: auto;
-    border-radius: 10px;
-  }
-
-  @keyframes scrollCats {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-</style>
-
-<h1>Every Day with Zach Jose</h1>
-
-<div class="cat-container">
-  <div class="cat-scroll">
-    <img src="https://images.unsplash.com/photo-1555685812-4b943f1cb0eb" alt="Cat 1">
-    <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006" alt="Cat 2">
-    <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783" alt="Cat 3">
-    <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131" alt="Cat 4">
-    <img src="https://images.unsplash.com/photo-1621462867881-39509e65c521" alt="Cat 5">
+  <div class="banner">
+    <h1>Welcome to Zach Jose Academy</h1>
   </div>
-</div>
+
+  <div class="chalkboard">
+    <h2>Zach’s Latest Video</h2>
+    <p><a href="#">Check it out here!</a></p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <div class="register">
+    <p>📚 Register for Zach 101 Now!</p>
+  </div>
+
+</body>
+</html>
+
+body {
+  background: url('your-school-hallway-image.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Bangers', cursive;
+  color: white;
+  text-align: center;
+}
+
+.banner {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  font-size: 30px;
+}
+
+.chalkboard {
+  background: url('chalkboard-texture.jpg');
+  padding: 20px;
+  width: 80%;
+  margin: auto;
+  border-radius: 15px;
+}
+
+.register {
+  background: yellow;
+  color: black;
+  padding: 10px;
+  font-size: 20px;
+  display: inline-block;
+  margin-top: 10px;
+}
