@@ -11,10 +11,6 @@
 
 <p id="message">Click the button to see something cool.</p>
 
-
-
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,12 +19,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
+  
 <body>
-
-  <div class="banner">
-    <h1>Welcome to Zach Jose Academy</h1>
-  </div>
-
   <div class="chalkboard">
     <h2>Watch My Latest Video</h2>
       <iframe width="560" height="315" 
@@ -38,11 +30,8 @@
         allowfullscreen>
       </iframe>
   </div>
-
   <div class="register">
-    <p>📚 Register for Zach 101 Now!</p>
   </div>
-
 </body>
 
 <p id="visitorCounter" style="font-size: 24px; font-weight: bold;"></p>
