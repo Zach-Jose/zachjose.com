@@ -8,7 +8,15 @@ title: Every Day with Zach Jose
 [Phone Number Input](/phone-input.html)
 
 # Welcome to My Website  
-[Click here to visit my YouTube Channel](https://studio.youtube.com/video/ROXKM5FV6WY/edit)
+[Click here to visit my YouTube Channel](https://www.youtube.com/@zachariahjose5622)
+
+<button onclick="document.getElementById('message').innerText='You clicked the button! 🎉'">
+  Click Me!
+</button>
+
+<p id="message">Click the button to see something cool.</p>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +37,7 @@ title: Every Day with Zach Jose
   <div class="chalkboard">
     <h2>Zach’s Latest Video</h2>
     <p><a href="#">Check it out here!</a></p>
-    <iframe width="560" height="315" src="[https://www.youtube.com/embed/YOUR_VIDEO_ID](https://youtu.be/ROXKM5FV6WY)" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=jf1yDKMbp_k" frameborder="0" allowfullscreen></iframe>
   </div>
 
   <div class="register">
@@ -37,3 +45,13 @@ title: Every Day with Zach Jose
   </div>
 
 </body>
+
+<script>
+  fetch("https://api.countapi.xyz/hit/zachjose.com/visits")
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("counter").innerText = data.value;
+    });
+</script>
+
+<p>Total Visits: <span id="counter">Loading...</span></p>
