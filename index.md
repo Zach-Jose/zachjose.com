@@ -37,7 +37,7 @@ title: Every Day with Zach Jose
   <div class="chalkboard">
     <h2>Watch My Latest Video</h2>
       <iframe width="560" height="315" 
-        src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+        src="https://www.youtube.com/embed/jf1yDKMbp_k" 
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
         allowfullscreen>
