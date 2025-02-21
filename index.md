@@ -25,7 +25,7 @@ Every Day with Zach Jose
   <div class="chalkboard">
     <h2>Zach’s Latest Video</h2>
     <p><a href="#">Check it out here!</a></p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="[https://www.youtube.com/embed/YOUR_VIDEO_ID](https://youtu.be/ROXKM5FV6WY)" frameborder="0" allowfullscreen></iframe>
   </div>
 
   <div class="register">
