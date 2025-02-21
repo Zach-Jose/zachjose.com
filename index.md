@@ -37,35 +37,3 @@ title: Every Day with Zach Jose
   </div>
 
 </body>
-</html>
-
-body {
-  background: url('your-school-hallway-image.jpg') no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Bangers', cursive;
-  color: white;
-  text-align: center;
-}
-
-.banner {
-  background: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  font-size: 30px;
-}
-
-.chalkboard {
-  background: url('chalkboard-texture.jpg');
-  padding: 20px;
-  width: 80%;
-  margin: auto;
-  border-radius: 15px;
-}
-
-.register {
-  background: yellow;
-  color: black;
-  padding: 10px;
-  font-size: 20px;
-  display: inline-block;
-  margin-top: 10px;
-}
