@@ -50,8 +50,6 @@ title: Every Day with Zach Jose
 
 </body>
 
-## Total Visitors Counter
-
 <p id="visitorCounter" style="font-size: 24px; font-weight: bold;"></p>
 
 <script>
