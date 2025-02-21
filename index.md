@@ -11,17 +11,20 @@ Every Day with Zach Jose
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
+    position: relative;
+    background: #f9f9f9;
+    padding: 10px 0;
   }
 
   .cat-scroll {
-    display: inline-block;
+    display: flex;
+    gap: 10px;
     animation: scrollCats 15s linear infinite;
   }
 
   .cat-scroll img {
     width: 200px;
     height: auto;
-    margin-right: 10px;
     border-radius: 10px;
   }
 
@@ -35,10 +38,10 @@ Every Day with Zach Jose
 
 <div class="cat-container">
   <div class="cat-scroll">
-    <img src="https://placekitten.com/200/300" alt="Cat 1">
-    <img src="https://placekitten.com/201/300" alt="Cat 2">
-    <img src="https://placekitten.com/202/300" alt="Cat 3">
-    <img src="https://placekitten.com/203/300" alt="Cat 4">
-    <img src="https://placekitten.com/204/300" alt="Cat 5">
+    <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg" alt="Cat 1">
+    <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMg.jpg" alt="Cat 2">
+    <img src="https://cdn2.thecatapi.com/images/MTY3ODIyNA.jpg" alt="Cat 3">
+    <img src="https://cdn2.thecatapi.com/images/MTY3ODIyNQ.jpg" alt="Cat 4">
+    <img src="https://cdn2.thecatapi.com/images/MTY3ODIyNg.jpg" alt="Cat 5">
   </div>
 </div>
