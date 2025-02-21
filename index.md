@@ -11,7 +11,6 @@ Every Day with Zach Jose
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
-    position: relative;
     background: #f9f9f9;
     padding: 10px 0;
   }
@@ -38,10 +37,10 @@ Every Day with Zach Jose
 
 <div class="cat-container">
   <div class="cat-scroll">
-    <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg" alt="Cat 1">
-    <img src="https://cdn2.thecatapi.com/images/MTY3ODIyMg.jpg" alt="Cat 2">
-    <img src="https://cdn2.thecatapi.com/images/MTY3ODIyNA.jpg" alt="Cat 3">
-    <img src="https://cdn2.thecatapi.com/images/MTY3ODIyNQ.jpg" alt="Cat 4">
-    <img src="https://cdn2.thecatapi.com/images/MTY3ODIyNg.jpg" alt="Cat 5">
+    <img src="https://images.unsplash.com/photo-1555685812-4b943f1cb0eb" alt="Cat 1">
+    <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006" alt="Cat 2">
+    <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783" alt="Cat 3">
+    <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131" alt="Cat 4">
+    <img src="https://images.unsplash.com/photo-1621462867881-39509e65c521" alt="Cat 5">
   </div>
 </div>
