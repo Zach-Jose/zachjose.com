@@ -8,7 +8,7 @@
   Click Me!
 </button>
 
----
+
 
 <button id="invertButton" style="padding: 10px; font-size: 16px; cursor: pointer;">Invert Colors</button>
 
@@ -18,7 +18,7 @@
   });
 </script>
 
----
+
 
 <head>
   <meta charset="UTF-8">
@@ -29,7 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
 
----
+
 
 <p id="visitorCounter" style="font-size: 14px; font-weight: bold;"></p>
 
