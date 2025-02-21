@@ -1,5 +1,6 @@
 ---
 layout: default
+title: phone number
 ---
 
 <h2>Enter Your Phone Number</h2>
