@@ -8,6 +8,18 @@
   Click Me!
 </button>
 
+---
+
+<button id="invertButton" style="padding: 10px; font-size: 16px; cursor: pointer;">Invert Colors</button>
+
+<script>
+  document.getElementById("invertButton").addEventListener("click", function() {
+    document.body.style.filter = document.body.style.filter === "invert(1)" ? "none" : "invert(1)";
+  });
+</script>
+
+---
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
