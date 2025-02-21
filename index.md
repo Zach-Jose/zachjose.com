@@ -20,92 +20,58 @@
 
 ---
 
-<button id="partyButton" style="padding: 10px; font-size: 16px; cursor: pointer;">Start the Party!</button>
-
-<audio id="song" src="/Phil.mp3"></audio>
-<img id="cat" src="/cat-dance.gif" alt="Cat" style="position: absolute; bottom: -100px; left: 50%; width: 100px; display: none;">
-<img id="discoBall" src="/disco.gif" alt="Disco Ball" style="position: absolute; top: -150px; left: 50%; width: 100px; display: none;">
-<div id="fireworks"></div>
 
 <style>
-  @keyframes dance {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(10deg); }
-    50% { transform: rotate(-10deg); }
-    75% { transform: rotate(10deg); }
-  }
-  
   @keyframes flash {
-    0%, 100% { background-color: white; }
-    50% { background-color: black; }
-  }
-  
-  @keyframes fireworks {
-    0% { opacity: 0; transform: scale(0.5); }
-    50% { opacity: 1; transform: scale(1.5); }
-    100% { opacity: 0; transform: scale(2); }
-  }
-  
-  .flashing { animation: flash 0.2s infinite alternate; }
-  .dancing { animation: dance 0.2s infinite alternate; }
-  .firework { 
-    position: absolute; width: 20px; height: 20px; border-radius: 50%; 
-    background-color: red; animation: fireworks 1s ease-out; 
+    0%, 50%, 100% { background-color: white; }
+    25%, 75% { background-color: black; }
   }
 </style>
 
 <script>
-  document.getElementById("partyButton").addEventListener("click", function() {
-    let song = document.getElementById("song");
+  function startParty() {
+    // Play music
+    document.getElementById("song").play();
+
+    // Show and animate the cat
     let cat = document.getElementById("cat");
-    let discoBall = document.getElementById("discoBall");
-    let body = document.body;
-
-    // Play the song
-    song.play();
-
-    // Show the cat and disco ball
     cat.style.display = "block";
+    cat.style.width = "250px"; // Make the cat bigger
+    cat.style.position = "absolute";
     cat.style.bottom = "50px";
-    cat.style.left = "50%";
+    cat.style.left = "10%";
     
+    let moveRight = true;
+    let catInterval = setInterval(() => {
+      let leftPos = parseInt(cat.style.left);
+      cat.style.left = moveRight ? (leftPos + 10) + "px" : (leftPos - 10) + "px";
+      if (leftPos > window.innerWidth - 300) moveRight = false;
+      if (leftPos < 10) moveRight = true;
+    }, 100);
+
+    // Show the disco ball
+    let discoBall = document.getElementById("discoBall");
     discoBall.style.display = "block";
-    discoBall.style.top = "10px";
+    discoBall.style.width = "200px"; // Make the disco ball bigger
 
-    // Make the cat dance
-    cat.classList.add("dancing");
+    // Flash effect for only 1 second
+    document.body.style.animation = "flash 1s";
 
-    // Flashing lights effect
-    body.classList.add("flashing");
-
-    // Fireworks
-    function createFirework() {
-      let firework = document.createElement("div");
-      firework.classList.add("firework");
-      firework.style.left = Math.random() * window.innerWidth + "px";
-      firework.style.top = Math.random() * window.innerHeight + "px";
-      firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-      document.getElementById("fireworks").appendChild(firework);
-      
-      setTimeout(() => firework.remove(), 1000);
-    }
-    
-    let fireworkInterval = setInterval(createFirework, 300);
-
-    // Stop the dance and lights after 11 seconds
+    // Stop everything after 11 seconds
     setTimeout(() => {
-      cat.classList.remove("dancing");
-      body.classList.remove("flashing");
+      clearInterval(catInterval);
+      cat.style.display = "none";
       discoBall.style.display = "none";
-      clearInterval(fireworkInterval);
-
-      // Make the cat walk away
-      cat.style.transition = "left 2s ease-in-out, bottom 1s ease-in-out";
-      cat.style.left = "110%";
-      setTimeout(() => { cat.style.display = "none"; }, 2000);
+      document.body.style.animation = "";
     }, 11000);
-  });
+  }
 </script>
+
+<button onclick="startParty()">Start Party!</button>
+<audio id="song" src="/Phil.mp3"></audio>
+<img id="cat" src="/cat-dance.gif" style="display: none;">
+<img id="discoBall" src="/disco.gif" style="display: none;">
+
 
 ---
 
