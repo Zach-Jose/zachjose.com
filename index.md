@@ -19,6 +19,7 @@
 </script>
 
 ---
+
 <style>
   @keyframes flash {
     0%, 50%, 100% { background-color: white; }
@@ -91,6 +92,7 @@
 </script>
 
 <button onclick="startParty()">Start Party!</button>
+
 ---
 
 <head>
