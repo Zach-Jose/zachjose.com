@@ -4,14 +4,21 @@
 
 [Check out the Hot Dog! 🌭](/hotdog/)
 
-
-<button onclick="setPapyrus()">Make It Papyrus</button>
+<button id="papyrusButton" onclick="togglePapyrus()">Make It Papyrus</button>
 
 <script>
-  function setPapyrus() {
+  function togglePapyrus() {
+    const button = document.getElementById("papyrusButton");
     document.body.classList.toggle("papyrus");
+
+    if (document.body.classList.contains("papyrus")) {
+      button.textContent = "Go Back";
+    } else {
+      button.textContent = "Make It Papyrus";
+    }
   }
 </script>
+
 
 <div id="top-right-menu">
 <details>
