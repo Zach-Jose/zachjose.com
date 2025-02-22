@@ -9,6 +9,14 @@
     document.body.style.fontFamily = "'Papyrus', fantasy";
   }
 </script>
+
+<details>
+  <summary><strong>🔽 Menu</strong></summary>
+  <ul>
+    <li><a href="/hotdog">🌭 Hot Dog</a></li>
+    <li><a href="/phone-input">📞 Phone Number</a></li>
+  </ul>
+</details>
 ---
 
 <style>
