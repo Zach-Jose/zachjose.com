@@ -1,22 +1,11 @@
-<a href="https://giving.younglife.org/s/?GiftType=Staff&Name=ZachJose&Sponsoring=Zach%20Jose&AppealCodeId=70141000000tvBDAAY&BypassDesignationPage=false&MissionUnitId=a2s410000002wa2AAA&MissionUnitName=Greater%20Roseville%2FAntelope&ClassCodeId=a2j41000000Nj93AAC&ClassCodeName=Operating&StaffId=0034100002PWJ3WAAX&StaffName=Zachariah%20Jose">Click here to donate to Young Life!</a>
 
 # Welcome to My Website  
-[Click here to visit my YouTube Channel](https://www.youtube.com/@zachariahjose5622)
+<a href="https://giving.younglife.org/s/?GiftType=Staff&Name=ZachJose&Sponsoring=Zach%20Jose&AppealCodeId=70141000000tvBDAAY&BypassDesignationPage=false&MissionUnitId=a2s410000002wa2AAA&MissionUnitName=Greater%20Roseville%2FAntelope&ClassCodeId=a2j41000000Nj93AAC&ClassCodeName=Operating&StaffId=0034100002PWJ3WAAX&StaffName=Zachariah%20Jose">Click here to donate to Young Life!</a>
 
 <p id="message">Click the button to see something cool.</p>
 <button onclick="document.getElementById('message').innerText='You clicked the button! 🎉'">
   Click Me!
 </button>
-
-
-
-<button id="invertButton" style="padding: 10px; font-size: 16px; cursor: pointer;">Invert Colors</button>
-
-<script>
-  document.getElementById("invertButton").addEventListener("click", function() {
-    document.body.style.filter = document.body.style.filter === "invert(1)" ? "none" : "invert(1)";
-  });
-</script>
 
 ---
 
