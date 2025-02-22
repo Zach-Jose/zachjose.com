@@ -2,6 +2,13 @@
 
 [Check out the Hot Dog! 🌭](/hotdog/)
 
+<button onclick="setPapyrus()">Make It Papyrus</button>
+
+<script>
+  function setPapyrus() {
+    document.body.style.fontFamily = "'Papyrus', fantasy";
+  }
+</script>
 ---
 
 <style>
