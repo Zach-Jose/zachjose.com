@@ -38,7 +38,7 @@
 
   function startParty() {
     // Play a new instance of the song every click
-    let newSong = new Audio("/Phil.mp3");
+    let newSong = new Audio("/APT.mp3");
     newSong.play();
 
     // Create a new cat GIF
