@@ -2,3 +2,4 @@ theme: minima
 author: Zachariah Justice Jose
 favicon: "/favicon.ico"
 title: Every Day with Zach Jose
+show_nav: false
