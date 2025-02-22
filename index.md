@@ -12,6 +12,7 @@
   }
 </script>
 
+<div id="top-right-menu">
 <details>
   <summary><strong>🔽 Menu</strong></summary>
   <ul>
@@ -19,6 +20,8 @@
     <li><a href="/phone-input">📞 Phone Number</a></li>
   </ul>
 </details>
+</div>
+
 ---
 
 <style>
