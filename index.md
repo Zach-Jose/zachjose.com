@@ -36,7 +36,7 @@
 </div>
 
 <h1>Zachariah <span id="justice" style="color: blue; cursor: pointer; text-decoration: underline;">Justice</span> Jose</h1>
-<img id="batman" src="/i-find-it-weird-weve-yet-to-have-a-scene-of-him-swinging-in-v0-bco5g9e195cc1.jpg" width="150">
+<img id="batman" src="https://upload.wikimedia.org/wikipedia/en/7/75/Batman_Patroc.png" width="150">
 
 <script>
     document.getElementById("justice").addEventListener("click", function() {
@@ -52,27 +52,46 @@
     });
 </script>
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        transition: background 1s ease-in-out;
-    }
-    .dark {
-        background: black;
-        color: white;
-    }
-    #batman {
-        position: fixed;
-        top: -200px;
-        left: 50%;
-        transform: translateX(-50%) scale(1.5);
-        opacity: 0;
-        transition: all 0.8s ease-in-out;
-    }
-</style>
-
 <button onclick="startParty()">Start Party!</button>
+
+<script>
+  function startParty() {
+    let newSong = new Audio("/APT.mp3");
+    newSong.play();
+
+    let cat = document.createElement("img");
+    cat.src = "/cat-dance.gif";
+    cat.style.width = "250px";
+    cat.style.position = "absolute";
+    cat.style.bottom = "50px";
+    cat.style.left = Math.random() * (window.innerWidth - 300) + "px";
+    document.body.appendChild(cat);
+
+    let moveRight = true;
+    let moveInterval = setInterval(() => {
+      let leftPos = parseInt(cat.style.left);
+      cat.style.left = moveRight ? (leftPos + 10) + "px" : (leftPos - 10) + "px";
+      if (leftPos > window.innerWidth - 300) moveRight = false;
+      if (leftPos < 10) moveRight = true;
+    }, 100);
+
+    let discoBall = document.createElement("img");
+    discoBall.src = "/disco.gif";
+    discoBall.style.width = "200px";
+    discoBall.style.position = "absolute";
+    discoBall.style.top = "10px";
+    discoBall.style.left = Math.random() * (window.innerWidth - 200) + "px";
+    document.body.appendChild(discoBall);
+
+    document.body.style.animation = "flash 1s";
+
+    setTimeout(() => {
+      clearInterval(moveInterval);
+      cat.remove();
+      discoBall.remove();
+    }, 11000);
+  }
+</script>
 
 <p id="visitorCounter" style="font-size: 14px; font-weight: bold;"></p>
 
