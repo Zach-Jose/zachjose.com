@@ -6,6 +6,22 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <style>
+        .dark {
+            background-color: black !important;
+            color: white !important;
+            transition: background-color 1s, color 1s;
+        }
+        #batman {
+            position: fixed;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: top 1s ease-in-out, opacity 1s;
+            opacity: 0;
+            width: 150px;
+        }
+    </style>
 </head>
 <body>
     <link rel="stylesheet" type="text/css" href="/style.css"><a href="https://giving.younglife.org/s/?GiftType=Staff&Name=ZachJose&Sponsoring=Zach%20Jose&AppealCodeId=70141000000tvBDAAY&BypassDesignationPage=false&MissionUnitId=a2s410000002wa2AAA&MissionUnitName=Greater%20Roseville%2FAntelope&ClassCodeId=a2j41000000Nj93AAC&ClassCodeName=Operating&StaffId=0034100002PWJ3WAAX&StaffName=Zachariah%20Jose">Click here to donate to Young Life!</a>
@@ -36,7 +52,7 @@
 </div>
 
 <h1>Zachariah <span id="justice" style="color: blue; cursor: pointer; text-decoration: underline;">Justice</span> Jose</h1>
-<img id="batman" src="https://upload.wikimedia.org/wikipedia/en/7/75/Batman_Patroc.png" width="150">
+<img id="batman" src="https://upload.wikimedia.org/wikipedia/en/7/75/Batman_Patroc.png">
 
 <script>
     document.getElementById("justice").addEventListener("click", function() {
