@@ -52,7 +52,7 @@
 </div>
 
 <h1>Zachariah <span id="justice" style="color: blue; cursor: pointer; text-decoration: underline;">Justice</span> Jose</h1>
-<img id="batman" src="https://upload.wikimedia.org/wikipedia/en/7/75/Batman_Patroc.png">
+<img id="batman" src="i-find-it-weird-weve-yet-to-have-a-scene-of-him-swinging-in-v0-bco5g9e195cc1">
 
 <script>
     document.getElementById("justice").addEventListener("click", function() {
