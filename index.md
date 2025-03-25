@@ -60,7 +60,7 @@ subtitle: "Area Director for CA251 - Building Christ-centered relationships with
   <h2>Support Our Work</h2>
   <div class="donate-cta">
     <p>Your donation helps us reach more local youth:</p>
-    <a href="https://giving.younglife.org/[YOUR-LINK]" class="cta-button">Donate Now</a>
+    <a href="(https://giving.younglife.org/s/ZachJose)" class="cta-button">Donate Now</a>
     <small>All donations tax-deductible | YoungLife EIN: 91-0663083</small>
   </div>
 </section>
