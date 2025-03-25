@@ -1,123 +1,66 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Every Day with Zach Jose</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-    <style>
-        .dark {
-            background-color: black !important;
-            color: white !important;
-            transition: background-color 1s, color 1s;
-        }
-        #batman {
-            position: fixed;
-            top: -200px;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: top 1s ease-in-out, opacity 1s;
-            opacity: 0;
-            width: 150px;
-        }
-    </style>
-</head>
-<body>
-    <link rel="stylesheet" type="text/css" href="/style.css"><a href="https://giving.younglife.org/s/?GiftType=Staff&Name=ZachJose&Sponsoring=Zach%20Jose&AppealCodeId=70141000000tvBDAAY&BypassDesignationPage=false&MissionUnitId=a2s410000002wa2AAA&MissionUnitName=Greater%20Roseville%2FAntelope&ClassCodeId=a2j41000000Nj93AAC&ClassCodeName=Operating&StaffId=0034100002PWJ3WAAX&StaffName=Zachariah%20Jose">Click here to donate to Young Life!</a>
+---
+layout: home
+title: "YoungLife Roseville/Antelope"
+subtitle: "Area Director for CA251 - Building Christ-centered relationships with local youth"
+---
 
-<button id="papyrusButton" onclick="togglePapyrus()">Make It Papyrus</button>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Reaching Young People in Roseville & Antelope</h1>
+    <p>Building bridges to faith through relationships, adventure, and God's love</p>
+    <a href="#donate" class="cta-button">Support Our Mission</a>
+  </div>
+</section>
 
-<script>
-  function togglePapyrus() {
-    const button = document.getElementById("papyrusButton");
-    document.body.classList.toggle("papyrus");
+<section id="about" class="section">
+  <h2>My Mission</h2>
+  <div class="mission-statement">
+    <p>As Area Director for YoungLife CA251, I'm committed to...</p>
+    <ul>
+      <li>Engaging middle school, high school, and special needs youth</li>
+      <li>Training and supporting volunteer leaders</li>
+      <li>Building partnerships with local churches and donors</li>
+      <li>Creating life-changing camp experiences</li>
+    </ul>
+  </div>
+</section>
 
-    if (document.body.classList.contains("papyrus")) {
-      button.textContent = "Go Back";
-    } else {
-      button.textContent = "Make It Papyrus";
-    }
-  }
-</script>
+<section id="needs" class="section">
+  <h2>How You Can Help</h2>
+  <div class="needs-grid">
+    <div class="need-card">
+      <h3>Prayer Partners</h3>
+      <p>Join our prayer team for monthly updates</p>
+    </div>
+    <div class="need-card">
+      <h3>Volunteer Leaders</h3>
+      <p>Mentor local youth 2-4 hours/week</p>
+    </div>
+    <div class="need-card">
+      <h3>Financial Support</h3>
+      <p>Help send kids to camp ($500 covers one teen)</p>
+    </div>
+  </div>
+</section>
 
-<div id="top-right-menu">
-<details>
-  <summary><strong>🔽 Menu</strong></summary>
-  <ul>
-    <li><a href="/hotdog">🌭 Hot Dog</a></li>
-    <li><a href="/phone-input">📞 Phone Number</a></li>
-  </ul>
-</details>
-</div>
+<section id="testimonials" class="section">
+  <h2>Lives Changed</h2>
+  <div class="testimonial-carousel">
+    <!-- Testimonial 1 -->
+    <div class="testimonial">
+      <img src="/assets/images/testimonial1.jpg" alt="Student testimonial">
+      <blockquote>"YoungLife camp showed me God's love in a way I'd never experienced before..."</blockquote>
+      <cite>- Sarah, Granite Bay HS</cite>
+    </div>
+    <!-- Add more testimonials -->
+  </div>
+</section>
 
-<h1>Zachariah <span id="justice" style="color: blue; cursor: pointer; text-decoration: underline;">Justice</span> Jose</h1>
-<img id="batman" src="/Batman.jpg">
-
-<script>
-    document.getElementById("justice").addEventListener("click", function() {
-        document.body.classList.add("dark");
-        let batman = document.getElementById("batman");
-        batman.style.opacity = "1";
-        batman.style.top = "50px";
-        setTimeout(() => {
-            batman.style.top = "-200px";
-            batman.style.opacity = "0";
-            setTimeout(() => document.body.classList.remove("dark"), 1000);
-        }, 1500);
-    });
-</script>
-
-<button onclick="startParty()">Start Party!</button>
-
-<script>
-  function startParty() {
-    let newSong = new Audio("/APT.mp3");
-    newSong.play();
-
-    let cat = document.createElement("img");
-    cat.src = "/cat-dance.gif";
-    cat.style.width = "250px";
-    cat.style.position = "absolute";
-    cat.style.bottom = "50px";
-    cat.style.left = Math.random() * (window.innerWidth - 300) + "px";
-    document.body.appendChild(cat);
-
-    let moveRight = true;
-    let moveInterval = setInterval(() => {
-      let leftPos = parseInt(cat.style.left);
-      cat.style.left = moveRight ? (leftPos + 10) + "px" : (leftPos - 10) + "px";
-      if (leftPos > window.innerWidth - 300) moveRight = false;
-      if (leftPos < 10) moveRight = true;
-    }, 100);
-
-    let discoBall = document.createElement("img");
-    discoBall.src = "/disco.gif";
-    discoBall.style.width = "200px";
-    discoBall.style.position = "absolute";
-    discoBall.style.top = "10px";
-    discoBall.style.left = Math.random() * (window.innerWidth - 200) + "px";
-    document.body.appendChild(discoBall);
-
-    document.body.style.animation = "flash 1s";
-
-    setTimeout(() => {
-      clearInterval(moveInterval);
-      cat.remove();
-      discoBall.remove();
-    }, 11000);
-  }
-</script>
-
-<p id="visitorCounter" style="font-size: 14px; font-weight: bold;"></p>
-
-<script>
-  function updateVisitorCount() {
-    const startDate = new Date("2000-04-05T00:00:00Z");
-    const now = new Date();
-    const hoursPassed = Math.floor((now - startDate) / (1000 * 60 * 60));
-    document.getElementById("visitorCounter").innerText = "Total Visitors: " + hoursPassed;
-  }
-  updateVisitorCount();
-</script>
-
-</body>
+<section id="donate" class="section">
+  <h2>Support Our Work</h2>
+  <div class="donate-cta">
+    <p>Your donation helps us reach more local youth:</p>
+    <a href="https://giving.younglife.org/[YOUR-LINK]" class="cta-button">Donate Now</a>
+    <small>All donations tax-deductible | YoungLife EIN: 91-0663083</small>
+  </div>
+</section>
