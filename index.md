@@ -4,6 +4,27 @@ title: "YoungLife Roseville/Antelope"
 subtitle: "Area Director for CA251 - Building Christ-centered relationships with local youth"
 ---
 
+
+<div style="text-align: center; margin-top: 100px;">
+  <a 
+    href="https://us06web.zoom.us/j/89810410824?jst=2#success" 
+    style="
+      font-size: 72px;
+      font-weight: bold;
+      color: #ff0000;
+      text-decoration: none;
+      background: yellow;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    "
+    onmouseover="this.style.transform='scale(1.1)'; this.style.transition='0.3s';"
+    onmouseout="this.style.transform='scale(1)';"
+  >
+    🎉 CLICK HERE FOR THE PARTY! 🎉
+  </a>
+</div>
+
 <section class="hero">
   <div class="hero-content">
     <h1>Reaching Young People in Roseville & Antelope</h1>
