@@ -60,7 +60,7 @@ permalink: /hotdog/
   #battle-hotdog {
     position: absolute;
     width: 150px;
-    left: 30%;
+    left: 40%;
     bottom: 20%;
     transform: translateX(-50%);
     z-index: 2;
@@ -104,30 +104,35 @@ permalink: /hotdog/
   /* Animations */
   @keyframes gorillaEntrance {
     0% { right: -200px; }
-    70% { right: 35%; }
-    100% { right: 30%; }
+    100% { right: 40%; transform: translateX(50%); }
   }
   
-  @keyframes clash {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(-20px); }
-    100% { transform: translateX(0); }
+  @keyframes hotdogPunch {
+    0% { transform: translateX(-50%); }
+    50% { transform: translateX(-30%); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  @keyframes gorillaPunch {
+    0% { transform: translateX(50%); }
+    50% { transform: translateX(30%); }
+    100% { transform: translateX(50%); }
   }
   
   @keyframes winner {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.2); }
+    100% { transform: translateX(-50%) scale(1); }
+  }
+  
+  @keyframes gorillaWinner {
+    0% { transform: translateX(50%) scale(1); }
+    50% { transform: translateX(50%) scale(1.2); }
+    100% { transform: translateX(50%) scale(1); }
   }
   
   @keyframes loser {
     100% { transform: rotate(90deg) translateY(100px); opacity: 0.5; }
-  }
-  
-  @keyframes victoryDance {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-30px); }
-    100% { transform: translateY(0); }
   }
   
   @keyframes fadeIn {
@@ -171,6 +176,10 @@ permalink: /hotdog/
   const closeButton = document.getElementById('close-battle');
   const battleArena = document.getElementById('battle-arena');
   
+  // Positions
+  const hotdogStartPos = '40%';
+  const gorillaFinalPos = '40%'; // Matches hotdog position
+  
   hotdogImg.addEventListener('click', startBattle);
   closeButton.addEventListener('click', () => location.reload());
   
@@ -178,8 +187,8 @@ permalink: /hotdog/
     mainContent.style.display = 'none';
     battleContainer.style.display = 'block';
     
-    // Reset positions and styles
-    battleHotdog.style.left = '30%';
+    // Reset positions
+    battleHotdog.style.left = hotdogStartPos;
     battleHotdog.style.transform = 'translateX(-50%)';
     battleHotdog.style.animation = '';
     battleHotdog.style.opacity = '1';
@@ -192,16 +201,15 @@ permalink: /hotdog/
     resultMessage.style.opacity = '0';
     closeButton.style.display = 'none';
     
-    // Gorilla entrance animation
+    // Gorilla entrance - lands at 40% from right
     battleGorilla.style.animation = 'gorillaEntrance 1.5s forwards';
     
-    // After gorilla arrives, start the clash
+    // After gorilla arrives, they both punch
     setTimeout(() => {
-      // Both characters move toward each other
-      battleHotdog.style.animation = 'clash 0.5s forwards';
-      battleGorilla.style.animation = 'clash 0.5s forwards';
+      battleHotdog.style.animation = 'hotdogPunch 0.5s forwards';
+      battleGorilla.style.animation = 'gorillaPunch 0.5s forwards';
       
-      // Determine winner by coin flip
+      // Determine winner after punches connect
       setTimeout(() => {
         const winner = Math.random() < 0.5 ? 'hotdog' : 'gorilla';
         showResult(winner);
@@ -213,12 +221,12 @@ permalink: /hotdog/
     if (winner === 'hotdog') {
       resultMessage.textContent = '🌭 HOT DOG WINS! 🌭';
       battleGorilla.style.animation = 'loser 1s forwards';
-      battleHotdog.style.animation = 'victoryDance 0.5s infinite';
+      battleHotdog.style.animation = 'winner 0.5s infinite';
       createConfetti();
     } else {
       resultMessage.textContent = '🦍 GORILLA WINS! 🦍';
       battleHotdog.style.animation = 'loser 1s forwards';
-      battleGorilla.style.animation = 'victoryDance 0.5s infinite';
+      battleGorilla.style.animation = 'gorillaWinner 0.5s infinite';
       createConfetti();
     }
     
