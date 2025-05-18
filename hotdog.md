@@ -5,13 +5,13 @@ permalink: /hotdog/
 ---
 
 <style>
-  /* Normal page styles */
   body {
     background-color: #f5f5f5;
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
   }
   
   #main-content {
@@ -27,20 +27,17 @@ permalink: /hotdog/
   }
   
   #hotdog-img {
-    width: 300px;
-    max-width: 100%;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 150px;
     cursor: pointer;
     transition: transform 0.2s;
+    margin-bottom: 30px;
   }
   
   #hotdog-img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 
-  /* Battle arena styles */
+  /* Battle arena */
   #battle-container {
     display: none;
     position: fixed;
@@ -48,132 +45,46 @@ permalink: /hotdog/
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #121212;
+    background-color: #000;
     z-index: 1000;
-    overflow: auto;
+    overflow: hidden;
   }
   
   #battle-arena {
     position: relative;
-    width: 90%;
-    max-width: 800px;
-    height: 400px;
-    margin: 30px auto;
-    background: #1a1a1a;
-    border: 3px solid #333;
-    border-radius: 10px;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #444, #000);
   }
   
   #battle-hotdog {
     position: absolute;
-    width: 120px;
-    left: 50px;
-    bottom: 50px;
+    width: 150px;
+    left: 30%;
+    bottom: 20%;
+    transform: translateX(-50%);
     z-index: 2;
   }
   
   #battle-gorilla {
     position: absolute;
-    width: 180px;
-    right: 100px;
-    bottom: 50px;
+    width: 200px;
+    right: -200px;
+    bottom: 20%;
     z-index: 2;
-    display: none;
   }
   
-  .health-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-  }
-  
-  .health-bar {
-    width: 300px;
-    height: 25px;
-    background-color: #333;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    border: 2px solid #444;
-  }
-  
-  .health-fill {
-    height: 100%;
-    width: 100%;
-    transition: width 0.3s;
-  }
-  
-  #hotdog-health .health-fill {
-    background: linear-gradient(to right, #ff5e62, #ff2400);
-  }
-  
-  #gorilla-health .health-fill {
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-  }
-  
-  .health-text {
+  #result-message {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 12px;
+    font-size: 36px;
     font-weight: bold;
-    text-shadow: 1px 1px 2px #000;
-  }
-  
-  /* Animations */
-  .punch {
-    animation: punch 0.3s linear;
-  }
-  
-  @keyframes punch {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(-15px); }
-    100% { transform: translateX(0); }
-  }
-  
-  .gorilla-attack {
-    animation: gorillaAttack 0.5s;
-  }
-  
-  @keyframes gorillaAttack {
-    0% { transform: scale(0.5); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-  }
-  
-  .victory {
-    animation: victory 1s infinite alternate;
-  }
-  
-  @keyframes victory {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-10px); }
-  }
-  
-  .defeat {
-    filter: grayscale(80%) brightness(60%);
-    animation: defeat 0.5s forwards;
-  }
-  
-  @keyframes defeat {
-    100% { transform: rotate(90deg); }
-  }
-  
-  #battle-log {
-    width: 90%;
-    max-width: 800px;
-    height: 100px;
-    margin: 20px auto;
-    padding: 10px;
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    border-radius: 5px;
-    overflow-y: auto;
-    font-family: monospace;
+    text-shadow: 0 0 10px #000;
+    opacity: 0;
+    z-index: 3;
   }
   
   #close-battle {
@@ -187,6 +98,47 @@ permalink: /hotdog/
     padding: 8px 15px;
     cursor: pointer;
     z-index: 1001;
+    display: none;
+  }
+  
+  /* Animations */
+  @keyframes gorillaEntrance {
+    0% { right: -200px; }
+    70% { right: 35%; }
+    100% { right: 30%; }
+  }
+  
+  @keyframes clash {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-20px); }
+    100% { transform: translateX(0); }
+  }
+  
+  @keyframes hotdogAttack {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(50px); }
+    100% { transform: translateX(0); }
+  }
+  
+  @keyframes gorillaAttack {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-50px); }
+    100% { transform: translateX(0); }
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes winner {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes loser {
+    100% { transform: rotate(90deg) scale(0.8); opacity: 0.5; }
   }
 </style>
 
@@ -194,137 +146,70 @@ permalink: /hotdog/
 <div id="main-content">
   <h1 id="hotdog-title">🌭 Hot Dog</h1>
   <img id="hotdog-img" src="/hotdog.jpg" alt="Hot Dog">
-  <p id="hotdog-description">Click the hot dog to reveal a surprise...</p>
+  <p>Click the hot dog for a surprise battle!</p>
 </div>
 
-<!-- Battle container (hidden by default) -->
+<!-- Battle container -->
 <div id="battle-container">
-  <button id="close-battle">✕ Close Battle</button>
-  <h1 style="color: white; text-align: center;">GORILLA VS. HOT DOG SHOWDOWN</h1>
-  
-  <div class="health-container">
-    <div class="health-bar" id="hotdog-health">
-      <div class="health-fill" style="width: 100%"></div>
-      <div class="health-text">Hot Dog: 100%</div>
-    </div>
-    <div class="health-bar" id="gorilla-health">
-      <div class="health-fill" style="width: 100%"></div>
-      <div class="health-text">Gorilla: 100%</div>
-    </div>
-  </div>
-  
+  <button id="close-battle">✕ Close</button>
   <div id="battle-arena">
     <img id="battle-hotdog" src="/hotdog.jpg" alt="Hot Dog">
     <img id="battle-gorilla" src="/gorilla.png" alt="Gorilla">
+    <div id="result-message"></div>
   </div>
-  
-  <div id="battle-log"></div>
 </div>
 
 <script>
-  // Get DOM elements
   const hotdogImg = document.getElementById('hotdog-img');
   const mainContent = document.getElementById('main-content');
   const battleContainer = document.getElementById('battle-container');
-  const closeButton = document.getElementById('close-battle');
+  const battleHotdog = document.getElementById('battle-hotdog');
   const battleGorilla = document.getElementById('battle-gorilla');
-  const battleLog = document.getElementById('battle-log');
+  const resultMessage = document.getElementById('result-message');
+  const closeButton = document.getElementById('close-battle');
   
-  // Start battle when hot dog is clicked
   hotdogImg.addEventListener('click', startBattle);
-  
-  // Close battle when X is clicked
-  closeButton.addEventListener('click', function() {
-    battleContainer.style.display = 'none';
-    mainContent.style.display = 'block';
-    location.reload();
-  });
+  closeButton.addEventListener('click', () => location.reload());
   
   function startBattle() {
-    // Hide main content and show battle
     mainContent.style.display = 'none';
     battleContainer.style.display = 'block';
     
-    // Initialize battle state
-    let hotdogHP = 100;
-    let gorillaHP = 100;
-    let battleInterval;
+    // Reset positions
+    battleHotdog.style.left = '30%';
+    battleGorilla.style.right = '-200px';
+    resultMessage.style.opacity = '0';
+    closeButton.style.display = 'none';
     
-    // Show gorilla with animation
-    battleGorilla.style.display = 'block';
-    battleGorilla.classList.add('gorilla-attack');
+    // Gorilla entrance animation
+    battleGorilla.style.animation = 'gorillaEntrance 1.5s forwards';
     
-    // Clear log and add first message
-    battleLog.innerHTML = '';
-    addLog('🚨 A wild gorilla appears!');
-    
-    // Start auto-battle after 1 second
+    // After gorilla arrives, start the clash
     setTimeout(() => {
-      addLog('⚔️ The battle begins!');
-      battleInterval = setInterval(performAttack, 800);
-    }, 1000);
-    
-    function addLog(message) {
-      const entry = document.createElement('div');
-      entry.textContent = message;
-      battleLog.appendChild(entry);
-      battleLog.scrollTop = battleLog.scrollHeight;
-    }
-    
-    function updateHealth() {
-      document.querySelector('#hotdog-health .health-fill').style.width = `${hotdogHP}%`;
-      document.querySelector('#gorilla-health .health-fill').style.width = `${gorillaHP}%`;
-      document.querySelector('#hotdog-health .health-text').textContent = `Hot Dog: ${hotdogHP}%`;
-      document.querySelector('#gorilla-health .health-text').textContent = `Gorilla: ${gorillaHP}%`;
-    }
-    
-    function performAttack() {
-      // Random damage (5-20)
-      const damage = Math.floor(Math.random() * 16) + 5;
-      const isCritical = Math.random() < 0.1; // 10% critical chance
-      const finalDamage = isCritical ? damage * 2 : damage;
+      // Both characters move toward each other
+      battleHotdog.style.animation = 'clash 0.5s forwards';
+      battleGorilla.style.animation = 'clash 0.5s forwards';
       
-      // Random attacker (60% gorilla, 40% hot dog)
-      const attacker = Math.random() < 0.6 ? 'gorilla' : 'hotdog';
-      
-      if (attacker === 'gorilla') {
-        hotdogHP = Math.max(0, hotdogHP - finalDamage);
-        document.getElementById('battle-hotdog').classList.add('punch');
-        addLog(`🦍 Gorilla hits for ${finalDamage} damage${isCritical ? ' (CRITICAL!)' : ''}`);
-      } else {
-        gorillaHP = Math.max(0, gorillaHP - finalDamage);
-        document.getElementById('battle-gorilla').classList.add('punch');
-        addLog(`🌭 Hot dog fights back for ${finalDamage} damage${isCritical ? ' (CRITICAL!)' : ''}`);
-      }
-      
-      // Remove punch animation
+      // Determine winner by coin flip
       setTimeout(() => {
-        document.getElementById('battle-hotdog').classList.remove('punch');
-        document.getElementById('battle-gorilla').classList.remove('punch');
-      }, 300);
-      
-      updateHealth();
-      
-      // Check for winner
-      if (hotdogHP <= 0) {
-        endBattle('gorilla');
-      } else if (gorillaHP <= 0) {
-        endBattle('hotdog');
-      }
+        const winner = Math.random() < 0.5 ? 'hotdog' : 'gorilla';
+        showResult(winner);
+      }, 500);
+    }, 1500);
+  }
+  
+  function showResult(winner) {
+    if (winner === 'hotdog') {
+      resultMessage.textContent = 'HOT DOG WINS!';
+      battleGorilla.style.animation = 'loser 1s forwards';
+      battleHotdog.style.animation = 'winner 1s infinite';
+    } else {
+      resultMessage.textContent = 'GORILLA WINS!';
+      battleHotdog.style.animation = 'loser 1s forwards';
+      battleGorilla.style.animation = 'winner 1s infinite';
     }
     
-    function endBattle(winner) {
-      clearInterval(battleInterval);
-      
-      if (winner === 'gorilla') {
-        addLog('💀 The gorilla WINS! Hot dog was defeated.');
-        document.getElementById('battle-hotdog').classList.add('defeat');
-        document.getElementById('battle-gorilla').classList.add('victory');
-      } else {
-        addLog('🎉 The hot dog WINS! Gorilla was defeated.');
-        document.getElementById('battle-gorilla').classList.add('defeat');
-        document.getElementById('battle-hotdog').classList.add('victory');
-      }
-    }
+    resultMessage.style.animation = 'fadeIn 1s forwards';
+    closeButton.style.display = 'block';
   }
 </script>
