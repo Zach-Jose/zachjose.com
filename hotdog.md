@@ -76,7 +76,7 @@ permalink: /hotdog/
   
   #result-message {
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
@@ -114,23 +114,6 @@ permalink: /hotdog/
     100% { transform: translateX(0); }
   }
   
-  @keyframes hotdogAttack {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(50px); }
-    100% { transform: translateX(0); }
-  }
-  
-  @keyframes gorillaAttack {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(-50px); }
-    100% { transform: translateX(0); }
-  }
-  
-  @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-  
   @keyframes winner {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
@@ -138,7 +121,26 @@ permalink: /hotdog/
   }
   
   @keyframes loser {
-    100% { transform: rotate(90deg) scale(0.8); opacity: 0.5; }
+    100% { transform: rotate(90deg) translateY(100px); opacity: 0.5; }
+  }
+  
+  @keyframes victoryDance {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0); }
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    opacity: 0;
   }
 </style>
 
@@ -167,6 +169,7 @@ permalink: /hotdog/
   const battleGorilla = document.getElementById('battle-gorilla');
   const resultMessage = document.getElementById('result-message');
   const closeButton = document.getElementById('close-battle');
+  const battleArena = document.getElementById('battle-arena');
   
   hotdogImg.addEventListener('click', startBattle);
   closeButton.addEventListener('click', () => location.reload());
@@ -175,9 +178,17 @@ permalink: /hotdog/
     mainContent.style.display = 'none';
     battleContainer.style.display = 'block';
     
-    // Reset positions
+    // Reset positions and styles
     battleHotdog.style.left = '30%';
+    battleHotdog.style.transform = 'translateX(-50%)';
+    battleHotdog.style.animation = '';
+    battleHotdog.style.opacity = '1';
+    
     battleGorilla.style.right = '-200px';
+    battleGorilla.style.transform = '';
+    battleGorilla.style.animation = '';
+    battleGorilla.style.opacity = '1';
+    
     resultMessage.style.opacity = '0';
     closeButton.style.display = 'none';
     
@@ -200,16 +211,44 @@ permalink: /hotdog/
   
   function showResult(winner) {
     if (winner === 'hotdog') {
-      resultMessage.textContent = 'HOT DOG WINS!';
+      resultMessage.textContent = '🌭 HOT DOG WINS! 🌭';
       battleGorilla.style.animation = 'loser 1s forwards';
-      battleHotdog.style.animation = 'winner 1s infinite';
+      battleHotdog.style.animation = 'victoryDance 0.5s infinite';
+      createConfetti();
     } else {
-      resultMessage.textContent = 'GORILLA WINS!';
+      resultMessage.textContent = '🦍 GORILLA WINS! 🦍';
       battleHotdog.style.animation = 'loser 1s forwards';
-      battleGorilla.style.animation = 'winner 1s infinite';
+      battleGorilla.style.animation = 'victoryDance 0.5s infinite';
+      createConfetti();
     }
     
     resultMessage.style.animation = 'fadeIn 1s forwards';
     closeButton.style.display = 'block';
+  }
+  
+  function createConfetti() {
+    const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff'];
+    for (let i = 0; i < 50; i++) {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.left = Math.random() * 100 + '%';
+      confetti.style.top = '-10px';
+      confetti.style.opacity = '1';
+      confetti.style.animation = `fall ${Math.random() * 2 + 1}s linear forwards`;
+      battleArena.appendChild(confetti);
+      
+      // Keyframes for falling animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes fall {
+          to {
+            transform: translateY(${window.innerHeight + 10}px) rotate(${Math.random() * 360}deg);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
   }
 </script>
