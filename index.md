@@ -12,8 +12,7 @@ subtitle: "Area Director for CA251 - Building Christ-centered relationships with
   <div class="hero-content">
     <h1>Reaching Young People in Roseville & Antelope</h1>
     <p>Building bridges to faith through relationships, adventure, and God's love</p>
-    <a href="#donate" class="cta-button">Support Our Mission</a>
-  </div>
+    <a href="#donate" <a href="https://giving.younglife.org/ZachJose" class="cta-button">Support Our Mission</a>
 </section>
 
 <section id="about" class="section">
